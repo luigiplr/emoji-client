@@ -24,8 +24,8 @@ class Map extends React.Component {
                 googleMapElement={
                   <GoogleMap
                     ref={(map) => console.log(map)}
-                    defaultZoom={3}
-                    defaultCenter={{lat: -25.363882, lng: 131.044922}}>
+                    defaultZoom={13}
+                    defaultCenter={{lat: 48.4422, lng: -123.3657}}>
                     {this.props.map.markers.map((marker, index) => {
                       return (
                         <Marker
