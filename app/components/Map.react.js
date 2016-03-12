@@ -1,6 +1,8 @@
 import React from 'react'
+import { GoogleMap, GoogleMapLoader } from "react-google-maps"
+import { connect } from 'react-redux'
 
-export default class Map extends React.Component {
+class Map extends React.Component {
 
     state = {
 
@@ -9,7 +11,43 @@ export default class Map extends React.Component {
 
     render() {
         return (
-            <div className="map column">Map</div>
+            <div className="map column">
+              <GoogleMapLoader
+                containerElement={
+                  <div
+                    {...this.props}
+                    style={{
+                      height: "100%",
+                    }}
+                  />
+                }
+                googleMapElement={
+                  <GoogleMap
+                    ref={(map) => console.log(map)}
+                    defaultZoom={3}
+                    defaultCenter={{lat: -25.363882, lng: 131.044922}}>
+                    {this.props.map.markers.map((marker, index) => {
+                      return (
+                        <Marker
+                          {...marker} />
+                      );
+                    })}
+                  </GoogleMap>
+                }
+              />
+            </div>
         )
     }
 }
+
+const mapStateToProps = (
+  state
+) => {
+  const { map } = state;
+
+  return {
+    map
+  }
+};
+
+export default connect(mapStateToProps)(Map)
