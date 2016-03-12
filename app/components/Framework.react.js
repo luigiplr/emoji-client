@@ -2,9 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import { Provider } from 'react-redux'
 import configureStore from  '../store/configureStore'
-import AppHeader from './AppHeader.react'
-import Sidebar from './Sidebar.react'
-import Map from './Map.react'
+import App from './App.react'
 
 const store = configureStore();
 
@@ -24,13 +22,7 @@ export default class Framework extends React.Component {
     render() {
         return (
             <Provider store={store}>
-              <div className="app">
-                <AppHeader />
-                <div className="content">
-                  <Sidebar />
-                  <Map />
-                </div>
-              </div>
+              <App />
             </Provider>
 
         )
