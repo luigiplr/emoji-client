@@ -1,12 +1,10 @@
 import * as actions from '../constants/ActionTypes';
 
 const initialState = {
-  isFetching: false,
-  didInvalidate: false,
-  items: []
+  markers: []
 }
 
-const posts = (state = initialState, action) => {
+const map = (state = initialState, action) => {
   switch (action.type) {
 
     default:
@@ -14,4 +12,4 @@ const posts = (state = initialState, action) => {
   }
 };
 
-export default posts;
+export default map;
