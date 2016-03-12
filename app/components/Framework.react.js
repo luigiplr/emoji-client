@@ -22,7 +22,7 @@ export default class Framework extends React.Component {
     render() {
         return (
             <Provider store={store}>
-              <div>
+              <div className="app">
                 <AppHeader />
               </div>
             </Provider>

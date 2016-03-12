@@ -14,6 +14,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
+        path.resolve(__dirname, 'app/styles/main.scss'),
         path.resolve(__dirname, 'app/main')
     ],
     output: {
@@ -27,8 +28,10 @@ module.exports = {
                 include: path.resolve(__dirname, 'app'),
                 exclude: /node_modules/,
                 loader: 'babel-loader'
-            },
-            {
+            }, {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass']
+            }, {
                 test: /^((?!\.global).)*\.css$/,
                 include: path.resolve(__dirname, 'app'),
                 exclude: /node_modules/,
