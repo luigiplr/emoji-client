@@ -9,7 +9,7 @@ export default class AppHeader extends React.Component {
 
     render() {
         return (
-            <h1>VicBoard</h1>
+            <div className="header">VicBoard</div>
         )
     }
 }
