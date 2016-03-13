@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, GoogleMapLoader } from "react-google-maps"
+import { GoogleMap, GoogleMapLoader, Marker } from "react-google-maps"
 import { connect } from 'react-redux'
 
 class Map extends React.Component {
@@ -19,7 +19,6 @@ class Map extends React.Component {
               <GoogleMapLoader
                 containerElement={
                   <div
-                    {...this.props}
                     style={{
                       height: "100%",
                     }}
@@ -38,11 +37,15 @@ class Map extends React.Component {
                     defaultCenter={{lat: 48.4422, lng: -123.3657}}
                     onClick={this.handleMapClick}
                   >
-                    {this.props.map.markers.map((marker, index) => {
-                      return (
-                        <Marker
-                          {...marker} />
-                      );
+                    {this.props.posts.items.map((post, index) => {
+                      if(typeof post.latitude !== 'undefined')
+                        return (
+                          <Marker
+                            position={{ lat: post.latitude, lng: post.longitude }}
+                            icon={ {url: 'images/' + post.category + '.png'} }
+                            width="10"
+                          />
+                        );
                     })}
                   </GoogleMap>
                 }
@@ -55,10 +58,10 @@ class Map extends React.Component {
 const mapStateToProps = (
   state
 ) => {
-  const { map } = state;
+  const { posts } = state;
 
   return {
-    map
+    posts
   }
 };
 
