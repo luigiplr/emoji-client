@@ -50,17 +50,16 @@ export default class CreatePost extends Component {
                 })
                 defer(() => this.props.close())
             })
-
-
     };
 
     render() {
         return (
-            <paper-dialog ref="modal" opened={this.props.open} with-backdrop  entry-animation="scale-up-animation" modal={true} exit-animation="fade-out-animation">
+            <paper-dialog autoFitOnAttach={true} ref="modal" className={styles.model} opened={this.props.open} with-backdrop  entry-animation="scale-up-animation" modal={true} exit-animation="fade-out-animation">
             
             <If test={!this.state.posting && !this.props.posted}>
               <div>
               <h2 className={styles.title}>New Post</h2>
+              <paper-dialog-scrollable>
               <paper-input ref="title" focused label="Title" />
               <paper-input ref="username" label="Username" />
               <paper-input ref="emoji" readonly max={1} label="Emoji!">
@@ -68,9 +67,9 @@ export default class CreatePost extends Component {
               </paper-input>
               <paper-input ref="text" label="Post Body" />
               <google-map className={styles.map} latitude="48.460984" longitude="-123.309966"/>
-
-              <paper-button onClick={this.handleSubmit} className={styles.submit}>Submit</paper-button>
-              <paper-button onClick={this.props.close} className={styles.create}>Close</paper-button>
+              </paper-dialog-scrollable>
+              <paper-button raised onClick={this.handleSubmit} className={styles.submit}>Submit</paper-button>
+              <paper-button raised onClick={this.props.close} className={styles.create}>Close</paper-button>
               </div>
             </If>
             <If test={this.props.posted}>
