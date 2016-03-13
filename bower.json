@@ -13,6 +13,8 @@
     "paper-input": "PolymerElements/paper-input#^1.1.10",
     "neon-animation": "PolymerElements/neon-animation#^1.1.1",
     "paper-styles": "PolymerElements/paper-styles#^1.1.4",
-    "paper-dialog": "PolymerElements/paper-dialog#^1.0.4"
+    "paper-dialog": "PolymerElements/paper-dialog#^1.0.4",
+    "emoji-selector": "https://github.com/notwaldorf/emoji-selector.git#^1.1.1",
+    "paper-spinner": "PolymerElements/paper-spinner#^1.1.1"
   }
 }
