@@ -9,7 +9,7 @@ export default class Sidebar extends Component {
     render() {
         return (
             <paper-scroll-header-panel className={styles.sidebar}>
-    			<paper-toolbar>
+    			<paper-toolbar entry-animation="scale-up-animation">
       				<div className={styles.title}>Recent Posts</div>
       				<paper-button className={styles.new}>New</paper-button>
       				<Search />

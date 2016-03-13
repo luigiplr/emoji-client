@@ -3,6 +3,7 @@ import superagent from 'superagent'
 
 import Sidebar from './Sidebar'
 import MapComponent from './Map'
+import CreatePost from './CreatePost'
 
 
 import MainStore from '../stores/mainStore'
@@ -39,6 +40,7 @@ export default class Framework extends Component {
             <div>
                 <Sidebar posts={this.state.posts} />
                 <MapComponent posts={this.state.posts}/>
+                <CreatePost open={false} />
             </div>
         )
     }
