@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Search from './Search.react'
 import styles from './style.css'
 
 export default class Sidebar extends Component {
@@ -9,7 +10,9 @@ export default class Sidebar extends Component {
         return (
             <paper-scroll-header-panel className={styles.sidebar}>
     			<paper-toolbar>
-      				<div>Recent Posts</div>
+      				<div className={styles.title}>Recent Posts</div>
+      				<paper-button className={styles.new}>New</paper-button>
+      				<Search />
     			</paper-toolbar>
     			<div>
     				<paper-card className={styles.post}>
