@@ -2,6 +2,12 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
+@mixin centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /**
  * Clear inner floats
  */
@@ -43,7 +49,7 @@
  * Shamelessly borrowed from HTML5Boilerplate:
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
-.visually-hidden { 
+.visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
