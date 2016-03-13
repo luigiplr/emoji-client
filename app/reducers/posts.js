@@ -1,10 +1,10 @@
 import * as actions from '../constants/ActionTypes';
 
 const initialState = {
-  isFetching: false,
-  didInvalidate: false,
-  composingPost: false,
-  items: []
+    isFetching: false,
+    didInvalidate: false,
+    composingPost: false,
+    items: []
 }
 
 /*
