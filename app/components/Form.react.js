@@ -7,51 +7,51 @@ var handleFocus = function() {
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
   }
 
   state = {
-    reply: false
+    reply: false,
+    author: "",
+    text: ""
   };
 
   handleFocus(e) {
     e.preventDefault(),
-    console.log("TEST")
     this.setState({reply: true})
+  }
+  handleAuthorChange(e) {
+    e.preventDeafult(),
+    this.setState({author: e.target.value})
+  }
+  handleTextChange(e) {
+    e.preventDefault(),
+    this.setState({text: e.target.value})
   }
   handleSubmit(e) {
     e.preventDefault(),
-    this.setState({reply: false})
+    this.setState({reply: false}),
+    author = this.state.author.trim(),
+    text = this.state.text.trim()
   }
 
   render() {
-    console.log(this.state);
-    if (this.state.reply == false && this.props.formType == "post") return (
+    console.log("we render now");
+    if ((this.state.reply == false && !this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleFocus}>
         <input type="submit" value="Post" />
       </form>
     );
-    if (this.state.reply == false && this.props.formType == "reply") return (
+    if ((this.state.reply == false && !this.props.expanded) && this.props.formType == "reply") return (
       <form className="replyForm" onSubmit={this.handleFocus}>
         <input type="submit" value="Reply" />
       </form>
     );
-    if (this.state.reply == true && this.props.formType == "post") return (
+    if ((this.state.reply == true || this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your name"
-        />
-        <input
-          type="text"
-          placeholder="Say something..."
-        />
-        <input type="submit" value="Post">Submit</input>
-      </form>
-    );
-    if (this.state.reply == true && this.props.formType == "reply") return (
-      <form className="replyForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Your name"
@@ -64,7 +64,24 @@ export default class Form extends React.Component {
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <input type="submit" value="Post">Submit</input>
+        <input type="submit" value="Submit"></input>
+      </form>
+    );
+    if ((this.state.reply == true || this.props.expanded) && this.props.formType == "reply") return (
+      <form className="replyForm" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="Your name"
+          value={this.state.author}
+          onChange={this.handleAuthorChange}
+        />
+        <input
+          type="text"
+          placeholder="Your reply..."
+          value={this.state.text}
+          onChange={this.handleTextChange}
+        />
+        <input type="submit" value="Submit"></input>
       </form>
     );
   }

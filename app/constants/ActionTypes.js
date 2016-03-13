@@ -1,6 +1,6 @@
 // Actions go here below are some examples
-// export const ADD_TODO = 'ADD_TODO';
-// export const REMOVE_TODO = 'REMOVE_TODO';
-// export const COMPLETE_TODO = 'COMPLETE_TODO';
-// export const REQUEST_TODOS = 'REQUEST_TODOS';
-// export const RECEIVE_TODOS = 'RECEIVE_TODOS';
+export const COMPOSE_POST   = 'COMPOSE_POST';
+export const REMOVE_POST    = 'REMOVE_POST';
+export const COMPLETE_POST  = 'COMPLETE_POST';
+export const REQUEST_POSTS  = 'REQUEST_POSTS';
+export const RECEIVE_POSTS  = 'RECEIVE_POSTS';

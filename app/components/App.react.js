@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Sidebar from './Sidebar.react'
 import Map from './Map.react'
+import Compose from './Compose.react'
 
 class App extends React.Component {
 
@@ -11,9 +12,11 @@ class App extends React.Component {
 
 
     render() {
+      const compose = (this.props.posts.composingPost) ? <Compose /> : null;
         return (
           <div className="app">
             <Sidebar posts={this.props.posts} />
+            {compose}
             <Map />
           </div>
         );

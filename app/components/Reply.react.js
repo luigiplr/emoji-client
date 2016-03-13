@@ -8,7 +8,7 @@ export default class Reply extends React.Component {
 
 	render() {
 		return (
-			<div className="reply">
+			<div className="reply-wrapper">
 				<span>({this.props.postId}) {this.props.author}:  {this.props.text}
 				</span>
 			</div>

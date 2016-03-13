@@ -24,7 +24,10 @@
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/compose',
+  'components/post',
+  'components/reply';
 
 // 6. Page-specific styles
 @import
