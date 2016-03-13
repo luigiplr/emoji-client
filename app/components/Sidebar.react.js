@@ -9,7 +9,7 @@ export default class Sidebar extends React.Component {
             <div className="sidebar">
               <Header />
               {this.props.posts.items.map((post) => {
-                return <Post title={post._source.title} name={post._source.username} text={post._source.text} emoji={post._source.emoji} comments={post._source.comments}/>
+                return <Post {...post._source}/>
               })}
               <Form formType={"post"}/>
 			      </div>

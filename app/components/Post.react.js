@@ -4,18 +4,16 @@ import Form from './Form.react'
 
 export default class Post extends React.Component {
 
-
-
 	state = {
 
 	};
 
-
 	render() {
+		console.log(this.props)
 		var	replyNodes = this.props.comments.map(function(reply) {
 			return (
 				<div className="reply">
-					<Reply author={reply.username} text={reply.text} emoji={reply.emoji}/>
+					<Reply author={reply.username} text={reply.text} emoji={`https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${reply.emoji_string}.png`}/>
 				</div>
 			);
 		});
@@ -28,7 +26,7 @@ export default class Post extends React.Component {
 						<div className="post-author">posted by {this.props.name}</div>
 						<div className="post-text">{this.props.text}</div>
 					</div>
-					<div className="post-emoji">{this.props.emoji}</div>
+					<img className="post-emoji" src={`https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${this.props.emoji_string}.png`}/>
 
 				</div>
 
