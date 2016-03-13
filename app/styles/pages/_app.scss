@@ -10,6 +10,7 @@
   display: flex;
   .sidebar {
     flex: 1;
+    min-width: 300px;
   }
   .map {
     height: 100vh;
