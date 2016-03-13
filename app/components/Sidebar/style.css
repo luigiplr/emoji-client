@@ -24,29 +24,33 @@
 .post {
     width: calc(100% - 40px);
     margin: 20px;
+    margin-bottom: 0px;
 }
 
 .voter {
     width: 80px;
-    float: left;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .actions {
-    margin-left: 75px;
+    margin-left: 10px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.voter .button {
-    width: 60px;
-    margin-left: 10px;
-    height: 60px;
-    padding: 0;
+.map {
+    height: 100px;
 }
 
-.voter .button.first {
-    margin-top: 50%;
-    margin-bottom: -10px;
+.voter .button {
+    padding: 6;
+    right: 5px;
+    margin-top: 5px;
 }
+
+.voter .button.first {}
 
 .postHeader {
     font-weight: 400;
@@ -56,9 +60,19 @@
     margin-bottom: 10px;
 }
 
+.user {
+    line-height: 20px;
+    margin: 15px;
+    font-size: 11px;
+    margin-left: 20px;
+    font-weight: 300;
+    margin-top: -5px;
+}
+
 .postContent {
     line-height: 20px;
     margin: 15px;
+    margin-left: 20px;
     font-weight: 300;
 }
 

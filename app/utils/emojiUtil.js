@@ -8,7 +8,7 @@ export default emoji => {
     return `https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${emoji_name}.png`
 }
 
-const emojis {
+const emojis = {
     "+1": "👍",
     "-1": "👎",
     "100": "💯",
@@ -888,5 +888,3 @@ const emojis {
     "zero": "0️⃣",
     "zzz": "💤"
 }
-
-export emojis

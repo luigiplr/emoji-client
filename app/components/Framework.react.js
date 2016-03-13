@@ -14,7 +14,7 @@ export default class Framework extends Component {
 
     state = {
         ...MainStore.getState(),
-        postModelOpen: true
+        postModelOpen: false
     };
 
     componentDidMount() {
@@ -32,6 +32,11 @@ export default class Framework extends Component {
             })
     };
 
+    handleOpenPost = id => {
+
+    };
+
+
     componentWillUnmount() {
         MainStore.unlisten(this._update)
     }
@@ -41,8 +46,8 @@ export default class Framework extends Component {
     render() {
         return (
             <div>
-                <Sidebar createPost={() => this.setState({postModelOpen: true})} posts={this.state.posts} />
-                <MapComponent posts={this.state.posts}/>
+                <Sidebar openPost={this.handleOpenPost} createPost={() => this.setState({postModelOpen: true})} posts={this.state.posts} />
+                <MapComponent openPost={this.handleOpenPost} posts={this.state.posts}/>
                 <CreatePost close={() => this.setState({postModelOpen: false})} open={this.state.postModelOpen} />
             </div>
         )

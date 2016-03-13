@@ -14,6 +14,7 @@
   "dependencies": {
     "alt": "^0.18.2",
     "lodash": "^4.6.1",
+    "moment": "^2.12.0",
     "react": "~0.14.3",
     "react-dom": "~0.14.3",
     "react-polymer": "^1.1.0",
