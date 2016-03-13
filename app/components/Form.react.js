@@ -119,7 +119,7 @@ class Form extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         sendPost: (state) => {
-            dispatch(actions.sendAddPost(...state))
+            dispatch(actions.sendAddPost(state))
         }
     }
 }
