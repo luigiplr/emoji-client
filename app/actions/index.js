@@ -35,9 +35,15 @@ export function receivePostsAction(json) {
 /* Add */
 export function sendAddPost(text, title, username, emoji, cords) {
   return dispatch => {
+    dispatch(sentAddPost());
     fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify({ text, title, username, emoji, cords })}, fetchHeaders)
     .then(req => req.json())
     .then(json => dispatch(sendFetchPosts()))
+  }
+}
+function sentAddPost() {
+  return {
+    type: actions.SENT_POST
   }
 }
 

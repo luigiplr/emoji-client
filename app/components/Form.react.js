@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect, dispatch } from 'react-redux'
 
 import * as actions from '../actions'
 
@@ -9,7 +10,7 @@ var handleFocus = function() {
 
 };
 
-export default class Form extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.handleFocus = this.handleFocus.bind(this);
@@ -45,16 +46,13 @@ export default class Form extends React.Component {
     e.preventDefault();
     this.setState({username: e.target.value})
   }
-  handleEmojiChange(e) {
-    e.preventDefault();
-    this.setState({emoji: e.target.value})
+  handleEmojiChange(emoji) {
+    this.setState({emoji})
   }
   handleSubmit(e) {
     e.preventDefault();
     this.setState({reply: false});
-    username = this.state.username.trim();
-    text = this.state.text.trim();
-    this.props.dispatch(actions.sendAddPost(...state))
+    this.props.sendPost(this.state);
   }
 
   render() {
@@ -71,7 +69,7 @@ export default class Form extends React.Component {
     );
     if ((this.state.reply == true || this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleSubmit}>
-        <EmojiPicker />
+        <EmojiPicker changeEmoji={this.handleEmojiChange} />
         <input
           type="text"
           className="text-field"
@@ -117,3 +115,13 @@ export default class Form extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendPost: (state) => {
+            dispatch(actions.sendAddPost(...state))
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Form)

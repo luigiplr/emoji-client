@@ -9,7 +9,6 @@ export default class Post extends React.Component {
 	};
 
 	render() {
-		console.log(this.props)
 		var	replyNodes = this.props.comments.map(function(reply) {
 			return (
 				<div className="reply">
