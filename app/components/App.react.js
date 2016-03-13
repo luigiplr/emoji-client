@@ -3,12 +3,18 @@ import { connect } from 'react-redux'
 import Sidebar from './Sidebar.react'
 import Map from './Map.react'
 import Compose from './Compose.react'
+import * as PostActions from '../actions'
 
 class App extends React.Component {
 
     state = {
 
     };
+
+    componentDidMount() {
+      const { dispatch } = this.props;
+      dispatch(PostActions.sendFetchPosts());
+    }
 
 
     render() {

@@ -42,8 +42,7 @@ const posts = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: action.posts,
-        lastUpdated: action.receivedAt
+        items: action.posts.hits
       });
     default:
       return state;

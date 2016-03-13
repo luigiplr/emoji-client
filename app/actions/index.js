@@ -18,13 +18,13 @@ export function sendFetchPosts() {
     dispatch(requestPostsAction());
     return fetch(api.GET_POSTS.url, { method: api.GET_POSTS.method })
       .then(req => req.json())
-      .then(json => dispatch(receivePostsAction(json)))
+      .then(json => dispatch(receivePostsAction(json.hits)))
   }
 }
-export function requestTodosAction() {
+export function requestPostsAction() {
   return { type: actions.REQUEST_POSTS }
 }
-export function receiveTodosAction(json) {
+export function receivePostsAction(json) {
   return {
     type: actions.RECEIVE_POSTS,
     posts: json

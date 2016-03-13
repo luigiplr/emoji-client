@@ -10,11 +10,12 @@ export default class Post extends React.Component {
 
 	};
 
+
 	render() {
-		var	replyNodes = this.props.data.replies.map(function(reply) {
+		var	replyNodes = this.props.comments.map(function(reply) {
 			return (
 				<div className="reply">
-					<Reply postId={reply.id} author={reply.author} text={reply.text}/>
+					<Reply author={reply.username} text={reply.text} emoji={reply.emoji}/>
 				</div>
 			);
 		});
@@ -23,11 +24,11 @@ export default class Post extends React.Component {
 			<div className="post">
 				<div className="post-wrapper">
 					<div className="post-content">
-						<div className="post-title">{this.props.data.title}</div>
-						<div className="post-author">posted by {this.props.data.author}</div>
-						<div className="post-text">{this.props.data.text}</div>
+						<div className="post-title">{this.props.title}</div>
+						<div className="post-author">posted by {this.props.name}</div>
+						<div className="post-text">{this.props.text}</div>
 					</div>
-					<div className="post-emoji">{this.props.data.emoji}</div>
+					<div className="post-emoji">{this.props.emoji}</div>
 
 				</div>
 
