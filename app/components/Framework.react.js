@@ -12,7 +12,10 @@ import MainActions from '../actions/mainActions'
 
 export default class Framework extends Component {
 
-    state = MainStore.getState();
+    state = {
+        ...MainStore.getState(),
+        postModelOpen: true
+    };
 
     componentDidMount() {
         MainStore.listen(this._update)
@@ -38,9 +41,9 @@ export default class Framework extends Component {
     render() {
         return (
             <div>
-                <Sidebar posts={this.state.posts} />
+                <Sidebar createPost={() => this.setState({postModelOpen: true})} posts={this.state.posts} />
                 <MapComponent posts={this.state.posts}/>
-                <CreatePost open={false} />
+                <CreatePost close={() => this.setState({postModelOpen: false})} open={this.state.postModelOpen} />
             </div>
         )
     }
