@@ -33,6 +33,14 @@ const posts = (state = initialState, action) => {
           lng: action.lng
         }
       });
+    case actions.REMOVE_POST:
+      return Object.assign({}, state, {
+        
+      });
+    case actions.COMPLETE_POST:
+      return Object.assign({}, state, {
+
+      });
     case actions.REQUEST_POSTS:
       return Object.assign({}, state, {
         isFetching: true,
