@@ -6,6 +6,7 @@ const initialState = {
 
   items: [
     {id: 1, author: "Anonymous", text: "Belmont St seriouly needs some repairs.",
+      lat: 48.4422, lng: -123.3657,
       replies:
       [{id: 1, author: "jake", text: "I live there too... It's ridiculous"},
       {id: 2, author: "Anonymous", text: "just buy a bike."}]},
