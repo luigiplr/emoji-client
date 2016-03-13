@@ -14,7 +14,8 @@ export default class CreatePost extends Component {
 
     state = {
         posting: false,
-        posted: false
+        posted: false,
+        cords: [null, null]
     };
 
     handleSubmit = () => {
@@ -29,6 +30,7 @@ export default class CreatePost extends Component {
             title,
             username,
             text,
+            cords: this.state.cords,
             emoji,
             time: moment().unix()
         }
@@ -52,6 +54,12 @@ export default class CreatePost extends Component {
             })
     };
 
+    handleMapUpdate = () => {
+        const cords = [this.refs.map.latitude, this.refs.map.longitude]
+        this.setState({ cords })
+
+    };
+
     render() {
         return (
             <paper-dialog autoFitOnAttach={true} ref="modal" className={styles.model} opened={this.props.open} with-backdrop  entry-animation="scale-up-animation" modal={true} exit-animation="fade-out-animation">
@@ -66,7 +74,9 @@ export default class CreatePost extends Component {
                 <emoji-selector suffix/>
               </paper-input>
               <paper-input ref="text" label="Post Body" />
-              <google-map className={styles.map} latitude="48.460984" longitude="-123.309966"/>
+              <google-map ref="map" className={styles.map} latitude="48.460984" longitude="-123.309966">
+                <google-map-marker onMouseUp={this.handleMapUpdate} latitude="48.460984" longitude="-123.309966" draggable="true" title="Post Coordinates"/>
+              </google-map>
               </paper-dialog-scrollable>
               <paper-button raised onClick={this.handleSubmit} className={styles.submit}>Submit</paper-button>
               <paper-button raised onClick={this.props.close} className={styles.create}>Close</paper-button>
