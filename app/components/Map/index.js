@@ -4,7 +4,7 @@ import emojiUtil from '../../utils/emojiUtil'
 
 export default class Map extends Component {
 
-    
+
     render() {
         return (
             <div className={styles.map}>
@@ -17,9 +17,7 @@ export default class Map extends Component {
                     return null
                 })
               }
-
               </google-map>
-
             </div>
         )
     }

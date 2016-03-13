@@ -1,9 +1,7 @@
 .map {
     width: 50vw;
+    position: absolute;
     height: 100vh;
+    right: 0;
     float: right;
-}
-
-google-map {
-
 }
