@@ -1,16 +1,19 @@
 import React from 'react'
 import { GoogleMap, GoogleMapLoader, Marker } from "react-google-maps"
-import { connect } from 'react-redux'
+import { connect, dispatch } from 'react-redux'
 import emoji from 'emoji'
+import * as PostActions from '../actions';
+
 
 class Map extends React.Component {
 
-    state = {
-
-    };
+    constructor(props) {
+      super(props);
+      this.handleMapClick = this.handleMapClick.bind(this);
+    }
 
     handleMapClick(e) {
-
+      this.props.onComposePost(e.latLng.lat(), e.latLng.lng());
       console.log('latitude: '+e.latLng.lat());
       console.log('long: '+e.latLng.lng());
     }
@@ -30,7 +33,7 @@ class Map extends React.Component {
                   <GoogleMap
                     ref={(map) => console.log(map)}
                     defaultZoom={13}
-                    defaultCenter={{lat: 48.4422, lng: -123.3657}}>
+                    defaultCenter={{lat: 48.4422, lng: -123.3657}}
                     defaultOptions={{
                       maxZoom: 16,
                       minZoom: 12,
@@ -71,4 +74,12 @@ const mapStateToProps = (
   }
 };
 
-export default connect(mapStateToProps)(Map)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onComposePost: (lat, lng) => {
+      dispatch(PostActions.composePost(lat, lng))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map)

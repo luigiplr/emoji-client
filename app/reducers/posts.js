@@ -3,7 +3,7 @@ import * as actions from '../constants/ActionTypes';
 const initialState = {
   isFetching: false,
   didInvalidate: false,
-
+  composingPost: false,
   items: [
     {id: 1, author: "Anonymous", text: "Belmont St seriouly needs some repairs.",
       latitude: 48.4422, longitude: -123.3657,
@@ -23,7 +23,14 @@ const initialState = {
 
 const posts = (state = initialState, action) => {
   switch (action.type) {
-
+    case actions.COMPOSE_POST:
+      return Object.assign({}, state, {
+        composingPost: true,
+        newPost: {
+          lat: action.lat,
+          lng: action.lng
+        }
+      });
     default:
       return state;
   }
