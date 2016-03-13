@@ -4,6 +4,23 @@
     height: 100vh;
 }
 
+.sidebar .title {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.sidebar .new {
+    padding: 0;
+    padding-top: 6px;
+    width: 20px;
+    margin-left: 20px;
+    padding-bottom: 6px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
 .post {
     width: calc(100% - 40px);
     margin: 20px;
@@ -43,4 +60,10 @@
     line-height: 20px;
     margin: 15px;
     font-weight: 300;
+}
+
+.search {
+    right: 20;
+    top: -5px;
+    position: absolute;
 }
