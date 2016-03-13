@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import styles from './style.css'
 
 export default class Post extends Component {
@@ -9,7 +10,7 @@ export default class Post extends Component {
     					  
     					     <div className={styles.content}>
     						    <div className={styles.postHeader}>{this.props.title}</div>
- 							      <div className={styles.user}>{`${this.props.username} - ${this.props.time}`}</div>
+ 							      <div className={styles.user}>{`${this.props.username} - ${moment.unix(this.props.time).fromNow()}`}</div>
  							      <div className={styles.postContent}>{this.props.text}</div>
   							     <div className={styles.actions}>
     							     <paper-button raised>Read More</paper-button>

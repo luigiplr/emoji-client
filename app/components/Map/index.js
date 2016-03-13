@@ -8,7 +8,7 @@ export default class Map extends Component {
     render() {
         return (
             <div className={styles.map}>
-              <google-map latitude="48.460984" zoom="10" longitude="-123.309966">
+              <google-map latitude="48.4733188" zoom="12" longitude="-123.347589612">
               {
                 this.props.posts.map(({_source}) => {
                   const post = _source

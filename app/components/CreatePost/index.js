@@ -41,15 +41,21 @@ export default class CreatePost extends Component {
         defer(() => this.refs.modal.center())
 
         superagent
-            .post('http://api.vicboard.com/threads')
+            .post(`${this.props.apiURL}/threads`)
             .send(post)
             .end((err, res) => {
-                console.log(err, res)
-                this.setState({
-                    posting: false,
-                    posted: true
-                })
-                defer(() => this.props.close())
+                if (err)
+                    window.alert('Something went wrong connecting with the backend!')
+                else
+                    this.props.handleAddPost(post)
+                this.refs.modal.close()
+                delay(() => {
+                    this.setState({
+                        posting: false,
+                        posted: true
+                    })
+                    defer(this.props.close)
+                }, 500)
             })
     };
 
@@ -59,7 +65,7 @@ export default class CreatePost extends Component {
             
             <If test={!this.state.posting && !this.props.posted}>
               <div>
-              <h2 className={styles.title}>New Post</h2>
+              <h2 className={styles.title}>New Thread</h2>
               <paper-dialog-scrollable>
               <paper-input ref="title" focused label="Title" />
               <paper-input ref="username" label="Username" />
@@ -67,8 +73,8 @@ export default class CreatePost extends Component {
                 <emoji-selector suffix/>
               </paper-input>
               <paper-input ref="text" label="Post Body" />
-              <google-map  className={styles.map} latitude="48.460984" longitude="-123.309966">
-                <google-map-marker ref="map" latitude="48.460984" longitude="-123.309966" draggable="true" title="Post Coordinates"/>
+              <google-map  className={styles.map} latitude="48.4733188" zoom="10" longitude="-123.347589612">
+                <google-map-marker ref="map" latitude="48.4733188" longitude="-123.347589612" draggable="true" title="Post Coordinates"/>
               </google-map>
               </paper-dialog-scrollable>
               <paper-button raised onClick={this.handleSubmit} className={styles.submit}>Submit</paper-button>

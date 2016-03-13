@@ -9,6 +9,7 @@ import CreatePost from './CreatePost'
 import MainStore from '../stores/mainStore'
 import MainActions from '../actions/mainActions'
 
+const apiURL = 'http://api.vicboard.com'
 
 export default class Framework extends Component {
 
@@ -23,8 +24,7 @@ export default class Framework extends Component {
     }
 
     updatePosts = () => {
-        console.log('updating!')
-        superagent.get('http://api.vicboard.com/threads')
+        superagent.get(`${apiURL}/threads`)
             .end((err, res) => {
                 if (err) return console.error(`Error getting initial posts! ${err}`)
                 const posts = res.body.hits.hits
@@ -36,6 +36,9 @@ export default class Framework extends Component {
 
     };
 
+    handleAddPost(post) {
+        MainActions.newPost({ _source: post })
+    }
 
     componentWillUnmount() {
         MainStore.unlisten(this._update)
@@ -48,7 +51,7 @@ export default class Framework extends Component {
             <div>
                 <Sidebar openPost={this.handleOpenPost} createPost={() => this.setState({postModelOpen: true})} posts={this.state.posts} />
                 <MapComponent openPost={this.handleOpenPost} posts={this.state.posts}/>
-                <CreatePost close={() => this.setState({postModelOpen: false})} open={this.state.postModelOpen} />
+                <CreatePost handleAddPost={this.handleAddPost} apiURL={apiURL} close={() => this.setState({postModelOpen: false})} open={this.state.postModelOpen} />
             </div>
         )
     }
