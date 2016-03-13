@@ -26,7 +26,7 @@ export default class Map extends Component {
               <google-map latitude="48.460984" longitude="-123.309966">
               {
                 this.state.posts.map(post => <google-map-marker latitude={post.cords[0]} longitude={post.cords[1]}
-                  draggable="true" clickEvents={true} icon={post.imgurl}/>)
+                  draggable="true" icon={post.imgurl}/>)
               }
 
               </google-map>
