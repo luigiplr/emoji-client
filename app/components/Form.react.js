@@ -1,5 +1,9 @@
 import React from 'react'
+
+import * as actions from '../actions'
+
 import EmojiPicker  from './EmojiPicker.react'
+
 
 var handleFocus = function() {
 
@@ -9,34 +13,48 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.handleFocus = this.handleFocus.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handleEmojiChange = this.handleEmojiChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   state = {
-    reply: false,
-    author: "",
-    text: ""
+    text: "",
+    title: "",
+    username: "",
+    emoji: "",
+    cords: [],
+    reply: false
   };
 
   handleFocus(e) {
-    e.preventDefault(),
+    e.preventDefault();
     this.setState({reply: true})
   }
-  handleAuthorChange(e) {
-    e.preventDeafult(),
-    this.setState({author: e.target.value})
-  }
   handleTextChange(e) {
-    e.preventDefault(),
+    e.preventDefault();
     this.setState({text: e.target.value})
   }
+  handleTitleChange(e) {
+    e.preventDefault();
+    this.setState({title: e.target.value})
+  }
+  handleUsernameChange(e) {
+    e.preventDefault();
+    this.setState({username: e.target.value})
+  }
+  handleEmojiChange(e) {
+    e.preventDefault();
+    this.setState({emoji: e.target.value})
+  }
   handleSubmit(e) {
-    e.preventDefault(),
-    this.setState({reply: false}),
-    author = this.state.author.trim(),
-    text = this.state.text.trim()
+    e.preventDefault();
+    this.setState({reply: false});
+    username = this.state.username.trim();
+    text = this.state.text.trim();
+    this.props.dispatch(actions.sendAddPost(...state))
   }
 
   render() {
@@ -58,13 +76,20 @@ export default class Form extends React.Component {
           type="text"
           className="text-field"
           placeholder="Your name"
-          value={this.state.author}
-          onChange={this.handleAuthorChange}
+          value={this.state.username}
+          onChange={this.handleUsernameChange}
         />
         <input
           type="text"
           className="text-field"
-          placeholder="Say something..."
+          placeholder="Title"
+          value={this.state.title}
+          onChange={this.handleTitleChange}
+        />
+        <input
+          type="text"
+          className="text-field"
+          placeholder="Say something"
           value={this.state.text}
           onChange={this.handleTextChange}
         />
@@ -77,13 +102,13 @@ export default class Form extends React.Component {
           className="text-field"
           type="text"
           placeholder="Your name"
-          value={this.state.author}
-          onChange={this.handleAuthorChange}
+          value={this.state.username}
+          onChange={this.handleUsernameChange}
         />
         <input
           type="text"
           className="text-field"
-          placeholder="Your reply..."
+          placeholder="Your reply"
           value={this.state.text}
           onChange={this.handleTextChange}
         />
