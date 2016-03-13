@@ -8,18 +8,11 @@
   position: absolute;
   top: 0;
   display: flex;
-  flex-direction: column;
-
-  .content {
-    display: flex;
-    .sidebar {
-      flex: 1;
-    }
-    .map {
-      width: 70vw;
-    }
+  .sidebar {
+    flex: 1;
   }
-  .column {
-
+  .map {
+    height: 100vh;
+    width: 800px;
   }
 }
