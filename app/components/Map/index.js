@@ -1,32 +1,21 @@
 import React, { Component } from 'react'
 import styles from './style.css'
+import emojiUtil from '../../utils/emojiUtil'
 
 export default class Map extends Component {
 
-    state = {
-        posts: [
-            {
-              cords: [48.460984, -123.309966],
-              imgurl: "http://big.assets.huffingtonpost.com/happy.jpg"
-            },
-            {
-              cords: [48.463000, -123.32],
-              imgurl: "http://big.assets.huffingtonpost.com/happy.jpg"
-            },
-            {
-              cords: [48.45, -123.29],
-              imgurl: "http://big.assets.huffingtonpost.com/happy.jpg"
-            }
-          ]
-    };
-
+    
     render() {
         return (
             <div className={styles.map}>
               <google-map latitude="48.460984" longitude="-123.309966">
               {
-                this.state.posts.map(post => <google-map-marker latitude={post.cords[0]} longitude={post.cords[1]}
-                  draggable="true" icon={post.imgurl}/>)
+                this.props.posts.map(post => {
+                  if(post.cords && post.cords[0] && post.cords[1])
+                    return <google-map-marker latitude={post.cords[0]} longitude={post.cords[1]} draggable="true" icon={`https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${post.emoji_string}.png`}/>
+                  else
+                    return null
+                })
               }
 
               </google-map>
