@@ -3,3 +3,7 @@
     height: 100vh;
     float: right;
 }
+
+google-map {
+  height: 600px;
+}
