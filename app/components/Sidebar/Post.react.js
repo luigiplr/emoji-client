@@ -4,7 +4,6 @@ import styles from './style.css'
 export default class Post extends Component {
 
     render() {
-    	console.log(this.props)
         return (
             <paper-card className={styles.post}>
     					  
