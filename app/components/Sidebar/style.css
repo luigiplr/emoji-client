@@ -1,5 +1,23 @@
 .sidebar {
     width: 50vw;
-        float: left;
+    float: left;
     height: 100vh;
+}
+
+.post {
+    width: calc(100% - 40px);
+    margin: 20px;
+}
+
+.postHeader {
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px; 
+}
+
+.postContent {
+	line-height: 18px;
+    margin: 15px;
 }

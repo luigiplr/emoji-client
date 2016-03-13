@@ -14,11 +14,9 @@
   "dependencies": {
     "alt": "^0.18.2",
     "lodash": "^4.6.1",
-    "needle": "^1.0.0",
     "react": "~0.14.3",
     "react-dom": "~0.14.3",
     "react-polymer": "^1.1.0",
-    "request": "^2.69.0",
     "superagent": "^1.8.0"
   },
   "devDependencies": {
