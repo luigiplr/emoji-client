@@ -18,6 +18,7 @@ Built using:
 -   React.js
 -   Polymer
 -   ElasticSearch
+-   Bluemix
 -   Emoji's! :smile: 
 
 Devs: 
