@@ -33,11 +33,17 @@ export function receivePostsAction(json) {
 }
 
 /* Add */
-export function sendAddPost(text, title, username, emoji, cords) {
+export function sendAddPost(state) {
   return dispatch => {
-    fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify({ text, title, username, emoji, cords })}, fetchHeaders)
+    dispatch(sentAddPost());
+    fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify(...state)}, fetchHeaders)
     .then(req => req.json())
     .then(json => dispatch(sendFetchPosts()))
+  }
+}
+function sentAddPost() {
+  return {
+    type: actions.SENT_POST
   }
 }
 

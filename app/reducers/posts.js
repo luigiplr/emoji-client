@@ -35,7 +35,7 @@ const posts = (state = initialState, action) => {
       });
     case actions.REMOVE_POST:
       return Object.assign({}, state, {
-        
+
       });
     case actions.COMPLETE_POST:
       return Object.assign({}, state, {
@@ -51,6 +51,12 @@ const posts = (state = initialState, action) => {
         isFetching: false,
         didInvalidate: false,
         items: action.posts.hits
+      });
+    case actions.SENT_POST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false,
+        composingPost: false
       });
     default:
       return state;
