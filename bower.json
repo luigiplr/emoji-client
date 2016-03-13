@@ -1,0 +1,8 @@
+{
+  "name": "emoji.rehab",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "paper-button": "PolymerElements/paper-button#^1.0.11"
+  }
+}

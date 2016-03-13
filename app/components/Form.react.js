@@ -1,5 +1,9 @@
 import React from 'react'
+
 import * as actions from '../actions'
+
+import EmojiPicker  from './EmojiPicker.react'
+
 
 var handleFocus = function() {
 
@@ -67,6 +71,7 @@ export default class Form extends React.Component {
     );
     if ((this.state.reply == true || this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleSubmit}>
+        <EmojiPicker />
         <input
           type="text"
           className="text-field"

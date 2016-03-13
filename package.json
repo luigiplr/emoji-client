@@ -16,6 +16,7 @@
     "lodash": "^4.6.1",
     "react": "~0.14.3",
     "react-dom": "~0.14.3",
+    "react-emoji-picker": "^1.0.10",
     "react-google-maps": "^4.9.1",
     "react-redux": "^4.4.0",
     "react-router": "^2.0.1",
@@ -24,6 +25,7 @@
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
+    "bower": "^1.7.7",
     "autoprefixer-core": "^6.0.1",
     "babel-core": "~6.2.1",
     "babel-loader": "~6.2.0",
