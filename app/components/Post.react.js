@@ -13,8 +13,7 @@ export default class Post extends React.Component {
 		var	replyNodes = this.props.data.replies.map(function(reply) {
 			return (
 				<div>
-					<span><i>{reply.id} - {reply.author}:</i> {reply.text}</span>
-
+					<Reply postId={reply.id} author={reply.author} text={reply.text}/>
 				</div>
 			);
 
@@ -22,8 +21,9 @@ export default class Post extends React.Component {
 
 		return (
 			<div className="post">
-				<span><h3>{this.props.data.id} - {this.props.data.author}</h3></span>
+				<h4><span>{this.props.data.id} - {this.props.data.author}: {this.props.data.text}</span></h4>
 				{replyNodes}
+				<br />
 			</div>
 		)
 	}
