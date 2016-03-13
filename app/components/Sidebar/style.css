@@ -1,5 +1,46 @@
 .sidebar {
     width: 50vw;
-        float: left;
+    float: left;
     height: 100vh;
+}
+
+.post {
+    width: calc(100% - 40px);
+    margin: 20px;
+}
+
+.voter {
+    width: 80px;
+    float: left;
+}
+
+.actions {
+    margin-left: 75px;
+    margin-bottom: 10px;
+}
+
+.voter .button {
+    width: 60px;
+    margin-left: 10px;
+    height: 60px;
+    padding: 0;
+}
+
+.voter .button.first {
+    margin-top: 50%;
+    margin-bottom: -10px;
+}
+
+.postHeader {
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.postContent {
+    line-height: 20px;
+    margin: 15px;
+    font-weight: 300;
 }
