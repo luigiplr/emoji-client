@@ -3,6 +3,7 @@ import moment from 'moment'
 import { defer, delay } from 'lodash'
 import superagent from 'superagent'
 import styles from './style.css'
+import emojis from '../../utils/emojis'
 
 class If extends Component {
     render() {
@@ -63,9 +64,16 @@ export default class CreatePost extends Component {
               <paper-dialog-scrollable>
               <paper-input ref="title" focused label="Title" />
               <paper-input ref="username" label="Username" />
-              <paper-input ref="emoji" readonly max={1} label="Emoji!">
-                <emoji-selector suffix/>
-              </paper-input>
+              <paper-dropdown-menu label="Upwards and to the left!" vertical-align="bottom" horizontal-align="left">
+                <paper-listbox class="dropdown-content">
+                  {
+                    Object.keys(emojis).map((emoji_string) =>{
+                       return (<paper-item className={styles.dropdownImage} key={emoji_string}><img src={`https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${emoji_string}.png`}/></paper-item>)
+                    })
+                  }
+
+                </paper-listbox>
+              </paper-dropdown-menu>
               <paper-input ref="text" label="Post Body" />
               <google-map  className={styles.map} latitude="48.460984" longitude="-123.309966">
                 <google-map-marker ref="map" latitude="48.460984" longitude="-123.309966" draggable="true" title="Post Coordinates"/>

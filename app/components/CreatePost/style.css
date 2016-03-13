@@ -2,6 +2,11 @@
     height: 100px;
 }
 
+.dropdownImage{
+	width: 50px;
+
+}
+
 .map {
     height: 200px;
     width: 500px;

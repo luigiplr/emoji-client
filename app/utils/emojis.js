@@ -1,14 +1,4 @@
-import { forEach } from 'lodash'
-
-export default emoji => {
-    let emoji_name = false
-    forEach(emojis, (e, name) => {
-        if (e === emoji) emoji_name = name
-    })
-    return `https://raw.githubusercontent.com/arvida/emoji-cheat-sheet.com/master/public/graphics/emojis/${emoji_name}.png`
-}
-
-const emojis = {
+export default {
     "+1": "👍",
     "-1": "👎",
     "100": "💯",
