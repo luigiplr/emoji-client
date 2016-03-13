@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import { defer, delay } from 'lodash'
 import superagent from 'superagent'
 import styles from './style.css'
@@ -28,7 +29,8 @@ export default class CreatePost extends Component {
             title,
             username,
             text,
-            emoji
+            emoji,
+            time: moment().unix()
         }
 
         this.setState({
@@ -46,7 +48,7 @@ export default class CreatePost extends Component {
                     posting: false,
                     posted: true
                 })
-                this.props.close()
+                defer(() => this.props.close())
             })
 
 
@@ -65,6 +67,8 @@ export default class CreatePost extends Component {
                 <emoji-selector suffix/>
               </paper-input>
               <paper-input ref="text" label="Post Body" />
+              <google-map className={styles.map} latitude="48.460984" longitude="-123.309966"/>
+
               <paper-button onClick={this.handleSubmit} className={styles.submit}>Submit</paper-button>
               <paper-button onClick={this.props.close} className={styles.create}>Close</paper-button>
               </div>

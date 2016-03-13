@@ -34,14 +34,22 @@
 }
 
 .actions {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.map {
+    height: 100px;
 }
 
 .voter .button {
-    padding: 0;
+    padding: 6;
+    right: 5px;
+    margin-top: 5px;
 }
 
-.voter .button.first {
-}
+.voter .button.first {}
 
 .postHeader {
     font-weight: 400;
@@ -51,9 +59,19 @@
     margin-bottom: 10px;
 }
 
+.user {
+    line-height: 20px;
+    margin: 15px;
+    font-size: 11px;
+    margin-left: 20px;
+    font-weight: 300;
+    margin-top: -5px;
+}
+
 .postContent {
     line-height: 20px;
     margin: 15px;
+    margin-left: 20px;
     font-weight: 300;
 }
 
