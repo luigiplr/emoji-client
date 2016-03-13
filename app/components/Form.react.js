@@ -54,22 +54,25 @@ export default class Form extends React.Component {
       <form className="postForm" onSubmit={this.handleSubmit}>
         <input
           type="text"
+          className="text-field"
           placeholder="Your name"
           value={this.state.author}
           onChange={this.handleAuthorChange}
         />
         <input
           type="text"
+          className="text-field"
           placeholder="Say something..."
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <input type="submit" value="Submit"></input>
+        <input type="submit" className="input-field" value="Submit"></input>
       </form>
     );
     if ((this.state.reply == true || this.props.expanded) && this.props.formType == "reply") return (
       <form className="replyForm" onSubmit={this.handleSubmit}>
         <input
+          className="text-field"
           type="text"
           placeholder="Your name"
           value={this.state.author}
@@ -77,11 +80,12 @@ export default class Form extends React.Component {
         />
         <input
           type="text"
+          className="text-field"
           placeholder="Your reply..."
           value={this.state.text}
           onChange={this.handleTextChange}
         />
-        <input type="submit" value="Submit"></input>
+        <input type="submit" className="input-field" value="Submit"></input>
       </form>
     );
   }
