@@ -11,6 +11,8 @@
   .sidebar {
     flex: 1;
     min-width: 300px;
+    border-right: $border;
+    overflow: auto;
   }
   .map {
     height: 100vh;
