@@ -1,30 +1,45 @@
-import React from 'react'
-import _ from 'lodash'
-import { Provider } from 'react-redux'
-import configureStore from  '../store/configureStore'
-import App from './App.react'
+import React, { Component } from 'react'
+import superagent from 'superagent'
 
-const store = configureStore();
+import Sidebar from './Sidebar'
+import MapComponent from './Map'
 
-class If extends React.Component {
-    render() {
-        return this.props.test ? this.props.children : null
+
+import MainStore from '../stores/mainStore'
+import MainActions from '../actions/mainActions'
+
+
+export default class Framework extends Component {
+
+    state = MainStore.getState();
+
+    componentDidMount() {
+        MainStore.listen(this._update)
+        this.updatePosts()
     }
-}
 
-export default class Framework extends React.Component {
-
-    state = {
-
+    updatePosts = () => {
+        console.log('updating!')
+        superagent.get('http://api.vicboard.com/threads')
+            .end((err, res) => {
+                if (err) return console.error(`Error getting initial posts! ${err}`)
+                const posts = res.body.hits.hits
+                MainActions.posts(posts)
+            })
     };
 
+    componentWillUnmount() {
+        MainStore.unlisten(this._update)
+    }
+
+    _update = () => this.setState(MainStore.getState());
 
     render() {
         return (
-            <Provider store={store}>
-              <App />
-            </Provider>
-
+            <div>
+                <Sidebar posts={this.state.posts} />
+                <MapComponent posts={this.state.posts}/>
+            </div>
         )
     }
 }

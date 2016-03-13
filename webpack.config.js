@@ -14,7 +14,6 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server',
         'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'app/styles/main.scss'),
         path.resolve(__dirname, 'app/main')
     ],
     output: {
@@ -24,20 +23,17 @@ module.exports = {
     },
     module: {
         loaders: [{
-                test: /\.js[x]?$/,
-                include: path.resolve(__dirname, 'app'),
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader'
-            }, {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass']
-            }, {
-                test: /^((?!\.global).)*\.css$/,
-                include: path.resolve(__dirname, 'app'),
-                exclude: /(node_modules|bower_components)/,
-                loader: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-            }
-        ]
+            test: /\.js[x]?$/,
+            include: path.resolve(__dirname, 'app'),
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel-loader'
+        }, {
+            test: /^((?!\.global).)*\.css$/,
+            loaders: [
+                'style-loader',
+                'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+            ]
+        }]
     },
     postcss: [
         require('autoprefixer-core'),

@@ -12,18 +12,14 @@
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1",
+    "alt": "^0.18.2",
     "lodash": "^4.6.1",
+    "needle": "^1.0.0",
     "react": "~0.14.3",
     "react-dom": "~0.14.3",
-    "react-emoji-picker": "^1.0.10",
-    "react-google-maps": "^4.9.1",
     "react-polymer": "^1.1.0",
-    "react-redux": "^4.4.0",
-    "react-router": "^2.0.1",
-    "redux": "^3.3.1",
-    "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.0.1"
+    "request": "^2.69.0",
+    "superagent": "^1.8.0"
   },
   "devDependencies": {
     "bower": "^1.7.7",
@@ -35,7 +31,6 @@
     "babel-preset-stage-0": "~6.1.18",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "node-sass": "^3.4.2",
     "open-browser-webpack-plugin": "0.0.1",
     "postcss-color-rebeccapurple": "^2.0.0",
     "postcss-loader": "^0.8.1",
