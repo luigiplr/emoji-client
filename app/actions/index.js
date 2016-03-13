@@ -12,6 +12,7 @@ export const composePost = (lat, lng) => {
     lng: lng
   }
 }
+
 /* Get */
 export function sendFetchPosts() {
   return dispatch => {
@@ -30,3 +31,14 @@ export function receivePostsAction(json) {
     posts: json
   }
 }
+
+/* Add */
+export function sendAddPost(text, title, username, emoji, cords) {
+  return dispatch => {
+    fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify({ text, title, username, emoji, cords })}, fetchHeaders)
+    .then(req => req.json())
+    .then(json => dispatch(sendFetchPosts()))
+  }
+}
+
+/* Remove */
