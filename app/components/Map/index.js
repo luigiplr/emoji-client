@@ -10,7 +10,8 @@ export default class Map extends Component {
     render() {
         return (
             <div className={styles.map}>
-              <google-map latitude="37.77493" longitude="-122.41942">
+              <google-map fit-to-markers zoom="11" latitude="48.454723" longitude="-123.355508">
+                <google-map-marker latitude="48.454723" longitude="-123.355508"></google-map-marker>
               </google-map>
             </div>
         )
