@@ -1,4 +1,4 @@
-// const base = 'http://localhost:2200';
+const base = 'http://api.vicboard.com';
 //
 export const GET_POSTS    = { url: base+'/post/get', method: 'GET' };
 export const CREATE_POST  = { url: base+'/post/new', method: 'POST' };
