@@ -3,7 +3,9 @@ import fetch from 'isomorphic-fetch';
 import * as actions from '../constants/ActionTypes';
 import * as api from '../constants/Api';
 
-const fetchHeaders = { headers: { 'Content-Type' : 'application/json' } };
+const headers = new Headers();
+headers.append("Content-Type", "application/x-www-form-urlencoded");
+
 
 export const composePost = (lat, lng) => {
   return {
@@ -36,7 +38,7 @@ export function receivePostsAction(json) {
 export function sendAddPost(state) {
   return dispatch => {
     dispatch(sentAddPost());
-    fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify(...state)}, fetchHeaders)
+    fetch(api.CREATE_POST.url, { method: api.CREATE_POST.method, body: JSON.stringify(...state), headers})
     .then(req => req.json())
     .then(json => dispatch(sendFetchPosts()))
   }
