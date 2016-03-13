@@ -26,7 +26,7 @@ module.exports = {
         loaders: [{
                 test: /\.js[x]?$/,
                 include: path.resolve(__dirname, 'app'),
-                exclude: /node_modules/,
+                exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader'
             }, {
                 test: /\.scss$/,
@@ -34,7 +34,7 @@ module.exports = {
             }, {
                 test: /^((?!\.global).)*\.css$/,
                 include: path.resolve(__dirname, 'app'),
-                exclude: /node_modules/,
+                exclude: /(node_modules|bower_components)/,
                 loader: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
             }
         ]

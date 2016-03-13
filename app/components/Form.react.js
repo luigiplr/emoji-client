@@ -1,7 +1,6 @@
+import reactPolymer from 'react-polymer'
 import React from 'react'
-
 import * as actions from '../actions'
-
 import EmojiPicker  from './EmojiPicker.react'
 
 
@@ -31,6 +30,7 @@ export default class Form extends React.Component {
 
   handleFocus(e) {
     e.preventDefault();
+    console.log('hit')
     this.setState({reply: true})
   }
   handleTextChange(e) {
@@ -58,16 +58,13 @@ export default class Form extends React.Component {
   }
 
   render() {
-    console.log("we render now");
     if ((this.state.reply == false && !this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleFocus}>
         <input type="submit" value="Post" />
       </form>
     );
     if ((this.state.reply == false && !this.props.expanded) && this.props.formType == "reply") return (
-      <form className="replyForm" onSubmit={this.handleFocus}>
-        <input type="submit" value="Reply" />
-      </form>
+      <paper-button onClick={this.handleFocus} raised>Reply</paper-button>
     );
     if ((this.state.reply == true || this.props.expanded) && this.props.formType == "post") return (
       <form className="postForm" onSubmit={this.handleSubmit}>
