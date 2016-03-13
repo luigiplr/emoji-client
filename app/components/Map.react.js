@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleMap, GoogleMapLoader, Marker } from "react-google-maps"
 import { connect } from 'react-redux'
+import emoji from 'emoji'
 
 class Map extends React.Component {
 
@@ -9,6 +10,7 @@ class Map extends React.Component {
     };
 
     handleMapClick(e) {
+
       console.log('latitude: '+e.latLng.lat());
       console.log('long: '+e.latLng.lng());
     }
@@ -38,14 +40,18 @@ class Map extends React.Component {
                     onClick={this.handleMapClick}
                   >
                     {this.props.posts.items.map((post, index) => {
-                      if(typeof post.latitude !== 'undefined')
+                      if(typeof post.latitude !== 'undefined') {
+                        const emo = emoji.unifiedToHTML('😎');
+                        const emoMarker = <div dangerouslySetInnerHTML={{__html: emo}} />;
                         return (
                           <Marker
                             position={{ lat: post.latitude, lng: post.longitude }}
-                            icon={ {url: 'images/' + post.category + '.png'} }
+                            // icon={ {url: 'images/' + post.category + '.png'} }
+                            label={emo}
                             width="10"
                           />
                         );
+                      }
                     })}
                   </GoogleMap>
                 }

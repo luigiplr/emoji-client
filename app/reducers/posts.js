@@ -14,6 +14,7 @@ const initialState = {
     {id: 2, author: "Anonymous", text: "My pomeranian is sick, does any know a good vet?",
       latitude: 48.462344, longitude: -123.312536,
       category: 'event',
+      emoji: '\u{1F604}',
       replies:
       [{id: 1, author: "harrison", text: "What did you expect buying that breed?"},
       {id: 2, author: "someGuy1337", text: "We have people living in tents downtown and you're worried about your fancy dog..."}]}
