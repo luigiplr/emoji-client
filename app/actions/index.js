@@ -12,3 +12,21 @@ export const composePost = (lat, lng) => {
     lng: lng
   }
 }
+/* Get */
+export function sendFetchPosts() {
+  return dispatch => {
+    dispatch(requestPostsAction());
+    return fetch(api.GET_POSTS.url, { method: api.GET_POSTS.method })
+      .then(req => req.json())
+      .then(json => dispatch(receivePostsAction(json)))
+  }
+}
+export function requestTodosAction() {
+  return { type: actions.REQUEST_POSTS }
+}
+export function receiveTodosAction(json) {
+  return {
+    type: actions.RECEIVE_POSTS,
+    posts: json
+  }
+}
