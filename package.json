@@ -6,6 +6,7 @@
   "license": "GPL-3.0",
   "bugs": {
       "url": "https://github.com/luigiplr/emoji-client/issues"
+  },
   "main": "app/main",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
