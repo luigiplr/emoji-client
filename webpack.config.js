@@ -9,12 +9,12 @@ module.exports = {
         hot: true,
         progress: true,
         contentBase: './app',
+        host: '0.0.0.0',
         port: 4000
     },
     entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080',
-        path.resolve(__dirname, 'app/main')
+        'webpack/hot/only-dev-server',
+        path.resolve(__dirname, 'app/main') 
     ],
     output: {
         path: __dirname + '/build',
