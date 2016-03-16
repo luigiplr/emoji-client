@@ -7,7 +7,7 @@
 
 Live URL(s):
 -   Frontend: http://emoji.rehab
--   Backend API: http://vicboard-server.mybluemix.net
+-   Backend API: http://api.emoji.rehab
 
 Github Repo(s):
 -   (client) https://github.com/luigiplr/emoji-client/tree/master
@@ -18,7 +18,7 @@ Built using:
 -   React.js
 -   Polymer
 -   ElasticSearch
--   Bluemix
+-   Bluemix (retired and replaced by linode VPS)
 -   Emoji's! :smile: 
 
 Devs: 
