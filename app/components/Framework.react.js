@@ -9,7 +9,7 @@ import CreatePost from './CreatePost'
 import MainStore from '../stores/mainStore'
 import MainActions from '../actions/mainActions'
 
-const apiURL = 'http://vicboard-server.mybluemix.net'
+const apiURL = 'http://api.emoji.rehab'
 
 export default class Framework extends Component {
 
